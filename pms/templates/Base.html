@@ -1,0 +1,81 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head> 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
+
+    <!-- Fonts -->
+     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    /> 
+
+    <!-- Icons. Uncomment required icon fonts -->
+    <link rel="stylesheet" href="{% static '/assets/vendor/fonts/boxicons.css' %}" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="{% static '/assets/vendor/css/core.css' %}" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="{% static '/assets/vendor/css/theme-default.css' %}" class="template-customizer-theme-css" />
+    
+    
+    <link rel="stylesheet" href="{% static '/assets/vendor/css/demo.css' %}" />
+    
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="{% static '/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css' %}" />
+
+    <link rel="stylesheet" href="{% static '/assets/vendor/libs/apex-charts/apex-charts.css' %}" />
+
+    <!-- Page CSS -->
+
+     <!-- Required meta tags -->
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     <title>Purple Admin</title>
+     <!-- plugins:css -->
+     <link rel="stylesheet" href="{% static '/assets/vendors/mdi/css/materialdesignicons.min.css'%}">
+     <link rel="stylesheet" href="{% static '/assets/vendors/css/vendor.bundle.base.css'%}">
+     <!-- endinject -->
+     <!-- Plugin css for this page -->
+     <!-- End plugin css for this page -->
+     <!-- inject:css -->
+     <!-- endinject -->
+     <!-- Layout styles -->
+     <link rel="stylesheet" href="{% static '/assets/css/style.css'%}">
+     <!-- End layout styles -->
+     <link rel="shortcut icon" href="{% static '/assets/images/favicon.png'%}" />
+     <script src="{% static 'assets/vendors/js/vendor.bundle.base.js'%}"></script>
+     <!-- endinject -->
+     <!-- Plugin js for this page -->
+     <script src="{% static 'assets/vendors/chart.js/Chart.min.js' %}"></script>
+     <!-- End plugin js for this page -->
+     <!-- inject:js -->
+     <script src="{% static 'assets/js/off-canvas.js' %}"></script>
+     <script src="{% static 'assets/js/hoverable-collapse.js' %}"></script>
+     <script src="{% static 'assets/js/misc.js' %}"></script>
+     <!-- endinject -->
+     <!-- Custom js for this page -->
+     <script src="{% static 'assets/js/dashboard.js' %}"></script>
+     <script src="{% static 'assets/js/todolist.js' %}"></script>
+     <!-- End custom js for this page -->
+
+  </head>
+  <body>
+    {% comment %} {% include './Navbar.html' %} {% endcomment %}
+    {% block content %}
+      
+    {% endblock content %}
+    <footer class="footer">
+      <div class="d-sm-flex justify-content-center justify-content-sm-between">
+        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2023 <a href="https://www.purple.com/" target="_blank">Purple</a>. All rights reserved.</span>
+        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="mdi mdi-heart text-danger"></i></span>
+      </div>
+    </footer>
+    
+  </body>
+</html>

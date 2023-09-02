@@ -1,0 +1,121 @@
+{% extends '../Base.html' %} {%load crispy_forms_tags %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project List</title>
+</head>
+<body>
+    
+    {% block content %}
+     <div class="container-scroller">
+      {% include '../manager_navbar.html' %}
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row" id="proBanner">
+            <div class="col-12">
+              
+            </div>
+          </div>
+          <div class="page-header">
+            <h3 class="page-title">
+              <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                <i class="mdi mdi-home"></i>
+              </span> Dashboard </h3>
+            <nav aria-label="breadcrumb">
+              <ul class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">
+                  <span></span>Overview <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
+                </li>
+              </ul>
+            </nav>
+          </div>
+      
+  <div class="card">
+    <div class="card-body">
+    <div class="row">
+      <div class="col-12 grid-margin">
+          <table class="display expandable-table dataTable no-footer" style="width: 100%;" role="grid">
+            <h4 class = "card-title" >Projects</h4>
+            <div class="table-responsive">
+              <table class="table">
+    <thead>
+      <tr role="row">
+          <th>No.</th> 
+          <th>Title
+
+            <a href="?sort_by=title&amp;direction=desc"
+            ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-short" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z"/>
+            </svg></a
+          >
+          
+          <a href="?sort_by=title&amp;direction=asc"
+            ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-short" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"/>
+            </svg></a
+          >
+
+          </th>
+          <th>Technolgy</th>
+          <th>Starting Date</th>
+          <th>Completion Date</th>
+          <th>Status</th>
+          <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+              {% for project in project_list %}
+              <tr class="table table-striped">
+                <td>{{forloop.counter}}</td>
+                <td>{{project.title}}
+                  {% comment %} <a class="dropdown-item" href="{% url 'modules' project.id %}" style="color:#4B49AC;"><i class="ti-bar-chart"></i> View Modules</a> {% endcomment %}
+                </td>
+                <td>{{project.technology}}</td>
+                <td>{{project.startDate}}</td>
+                <td>{{project.completionDate}}</td> 
+                <td class="font-weight-medium">
+                  {% if project.status == 'Completed' %}
+
+                    <div class="badge badge-gradient-success">Completed</div>
+                  
+                  {% elif project.status == 'Pending' %}
+
+                    <div class="badge badge-gradient-warning">Pending</div>
+                  
+                  {% else %}
+
+                    <div class="badge badge-gradient-danger">Cancelled</div>
+                    
+                  {% endif %}
+                </td>
+                <div class="font-weight-medium">
+                  <td><span class="badge bg-label-primary me-1">Active</span></td>
+                  <td>
+                    <div class="dropdown">
+                      <a class="dropdown-item" href="#"
+                        ><i class="bx bx-edit-alt me-1"></i> Edit</a
+                      >
+                      <a class="dropdown-item" href="{% url 'delete_project' project.id %}"
+                        ><i class="bx bx-trash me-1"></i> Delete</a
+                      >
+                    </div>
+                  </td>
+              </div>
+            </tr>
+            {% endfor %}
+          </div>
+        </div>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    {% endblock content %}
+        
+</body>
+</html>

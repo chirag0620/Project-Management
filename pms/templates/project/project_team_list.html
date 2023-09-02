@@ -1,0 +1,88 @@
+{% extends '../Base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+  {% block content %}
+  <div class="container-scroller">
+   {% include '../manager_navbar.html' %}
+   <!-- partial -->
+   <div class="main-panel">
+     <div class="content-wrapper">
+       <div class="row" id="proBanner">
+         <div class="col-12">
+           
+         </div>
+       </div>
+       <div class="page-header">
+         <h3 class="page-title">
+           <span class="page-title-icon bg-gradient-primary text-white mr-2">
+             <i class="mdi mdi-home"></i>
+           </span> Dashboard </h3>
+         <nav aria-label="breadcrumb">
+           <ul class="breadcrumb">
+             <li class="breadcrumb-item active" aria-current="page">
+               <span></span>Overview <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
+             </li>
+           </ul>
+         </nav>
+       </div>
+<div class="card">
+  <div class="card-body">     
+    <div class="row">
+      <div class="col-12 grid-margin">
+       <table class="display expandable-table dataTable no-footer" style="width: 100%;" role="grid">
+        <h4 class = "card-title" >Project Team</h4>
+        <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Project</th>
+              <th>Role</th>
+              <th>Technology</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody class="table-border-bottom-0">
+            
+            {% for team in project_team_list %}
+            <tr>
+              <td>
+                <i class="fab fa-angular fa-lg text-danger me-3"></i>
+                <strong>{{team.project.title}}</strong>
+              </td>
+              <td>{{team.user.username}}</td>
+              <td>{{team.project.technology}}</td>
+              <td><span class="badge badge-gradient-success">Active</span></td>
+              <div class="font-weight-medium">
+                <td>
+                  <a class="dropdown-item" href="#" style="color:#4B49AC;"><i class="ti-pencil-alt"></i> Edit</a>
+                  <a class="dropdown-item" href="#" style="color:#4B49AC;"><i class="ti-trash"></i> Delete</a>
+                  
+                </td>
+              </div>
+            </tr>
+
+            {% endfor %}
+          </tbody>
+        </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    {% endblock content %}
+        
+    
+</body>
+</html>
